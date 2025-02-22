@@ -1,6 +1,6 @@
 const express = require("express");
-const MayP34 = require("../models/mayP34/MayP34");
-const SpecCheckP34 = require("../models/mayP34/SpecCheckP34");
+const MayP34 = require("../models/MayP34/MayP34");
+const SpecCheckP34 = require("../models/MayP34/SpecCheckP34");
 const router = express.Router();
 
 // Lấy danh sách máy P34
