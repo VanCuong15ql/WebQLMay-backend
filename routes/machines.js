@@ -1,8 +1,8 @@
 const express = require("express");
-const Machine = require("../models/Machines");
-const Activity = require("../models/Activity");
-const Replacement = require("../models/Replacement");
-const MachineSpec = require("../models/MachineSpec");
+const Machine = require("../models/Maytho/Machines");
+const Activity = require("../models//Maytho/Activity");
+const Replacement = require("../models/Maytho/Replacement");
+const MachineSpec = require("../models/Maytho/MachineSpec");
 const router = express.Router();
 
 // Lấy danh sách máy thở
