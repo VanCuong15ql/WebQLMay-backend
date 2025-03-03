@@ -31,8 +31,10 @@ router.post('/login', async (req, res) => {
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) return res.status(400).json({ message: 'Sai tài khoản hoặc mật khẩu!' });
 
-    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-    res.json({ token, username: user.username });
+    if (user.role === 'none') return res.status(403).json({ message: 'Tài khoản chưa được cấp quyền!' });
+
+    const token = jwt.sign({ id: user._id, role: user.role }, process.env.JWT_SECRET, { expiresIn: '1h' });
+    res.json({ token, username: user.username, role: user.role });
   } catch (err) {
     res.status(500).json({ message: 'Lỗi server!' });
   }
